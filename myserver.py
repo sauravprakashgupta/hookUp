@@ -1,7 +1,7 @@
 import socket
 import sys
 
-#By creating a socket you can connect to 2 computers
+#By creating a socket you can connect to 2 computers...
 
 def createSocket():
     try:
