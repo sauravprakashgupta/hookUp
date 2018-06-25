@@ -75,6 +75,26 @@ def AcceptConnections():
         except:
             print("Error Encountered while accepting connections")
 
+#Interactive prompt for sending commands remotely
+def myPrompt():
+    while True:
+        cmdLine = input('hookUp > ')
+        if == 'list':
+            connectionList()
+        elif 'select' in cmdLine:
+            conn = get_target(cmdLine)
+            if conn is not None:
+                send_taget_command(conn)
+        else:
+            print('command not recognised')
+
+
+
+
+
+
+
+
 
 
 
