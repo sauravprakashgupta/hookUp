@@ -89,16 +89,6 @@ def myPrompt():
             print('command not recognised')
 
 
-
-
-
-
-
-
-
-
-
-
 def main():
     createSocket()
     bindSocket()
